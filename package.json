@@ -1,0 +1,23 @@
+{
+  "name": "mean-travel-app",
+  "version": "1.0.0",
+  "description": "Lauren Mellon Sara Wegmann Jose Carlos de la Colina Horta",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saraweggs/Mean-Travel-App.git"
+  },
+  "author": "Sara, Lauren, JCDLCH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saraweggs/Mean-Travel-App/issues"
+  },
+  "homepage": "https://github.com/saraweggs/Mean-Travel-App#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
