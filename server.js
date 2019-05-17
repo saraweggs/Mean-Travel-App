@@ -16,7 +16,7 @@ const travelsController = require('./controllers/travels.js');
 app.use('/travels', travelsController);
 
 app.get('/', (req,res) => {
-    res.send('hello world');
+    res.send('hello traveller!');
 });
 
 const userController = require('./controllers/users.js');
