@@ -7,7 +7,7 @@ const session = require('express-session');
 app.use(express.static('public'));
 app.use(express.json());
 app.use(session({
-  secret: 'feedmeseymour',
+  secret: 'travellife',
   resave: false,
   saveUninitialized: false
 }));
