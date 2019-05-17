@@ -18,6 +18,18 @@
   },
   "homepage": "https://github.com/saraweggs/Mean-Travel-App#readme",
   "dependencies": {
-    "express": "^4.16.4"
+<<<<<<< HEAD
+    "express": "^4.16.4",
+    "mongoose": "^5.5.9"
+=======
+    "bcrypt": "^3.0.6",
+    "express": "^4.16.4",
+<<<<<<< HEAD
+    "express-session": "^1.16.1"
+>>>>>>> ef7ce78abb786d40befb1bade24f2b6f61f536aa
+=======
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.9"
+>>>>>>> 91fa21d14ba99b6c899af301f43c7a1138b8c59a
   }
 }
