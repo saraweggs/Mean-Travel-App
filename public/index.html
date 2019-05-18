@@ -10,6 +10,8 @@
         <main ng-controller="MainController as ctrl">
             <h1>Travel{err}</h1>
 
+            </div>
+
             <form ng-submit="ctrl.createLocation()">
               <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
                   <option value="Beach">Beach</option>
@@ -25,25 +27,11 @@
             </form>
             <div ng-repeat="place in ctrl.travels">
                 <div class="travels">
-                    {{place.location}}</br>
-                    <img src="{{place.image}}" alt="{{place.location}}"></br>
-                    Food Spots: {{place.food}}</br>
-                    Activities: {{place.activities}}</br>
-                    Visited On: {{place.date | date:'MM/dd/yyyy'}}
-                    <button ng-click="ctrl.deleteLocation(place)">Delete</button>
-                    <form ng-submit="ctrl.editLocation(place)">
-                      <select name="type" ng-model="ctrl.updatedType" placeholder="Type of Location">
-                          <option value="Beach">Beach</option>
-                          <option value="Mountains">Mountains</option>
-                          <option value="City">City</option>
-                          <option value="Country">Country</option>
-                      <input type="text" ng-model="ctrl.updatedLocation" placeholder="Location">
-                      <input type="text" ng-model="ctrl.updatedImage" placeholder="Image Link">
-                      <input type="text" ng-model="ctrl.updatedActivities" placeholder="Activities">
-                      <input type="text" ng-model="ctrl.updatedFood" placeholder="Food Spots">
-                      <input type="text" ng-model="ctrl.updatedDate" placeholder="Date Visited">
-                      <input type="submit" value="Edit Place!">
-                    </form>
+                    {{place.location}}
+                    <img src="{{place.image}}" alt="">
+                    {{place.food}}
+                    {{place.activities}}
+                    {{place.date}}
                 </div>
             </div>
         </main>
