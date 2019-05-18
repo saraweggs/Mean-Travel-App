@@ -64,6 +64,7 @@ app.controller('MainController', ['$http', function($http) {
       }
     }).then(
       function(response) {
+        console.log(response);
         controller.getLocations();
         controller.indexOfEditFormToShow = null;
       }, function(error) {
