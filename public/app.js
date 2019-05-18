@@ -73,4 +73,50 @@ app.controller('MainController', ['$http', function($http) {
     );
   }
 
+  this.createUser = function() {
+    $http({
+      method: 'POST',
+      url: '/users',
+      data: {
+        username: this.username,
+        password: this.password
+      }
+    }).then(function(response) {
+      controller.username = null;
+      controller.password = null;
+    }, function(error) {
+      console.log(error);
+    })
+  }
+
+  this.logOut = function(){
+    $http({
+        method:'DELETE',
+        url:'/sessions'
+    }).then(function(response){
+        controller.loggedInUsername = null;
+    }, function(error){
+        console.log(error);
+    });
+  }
+
+  this.logIn = function() {
+    $http({
+      method: 'POST',
+      url: '/sessions',
+      data: {
+        username: this.existingUsername,
+        password: this.existingPassword
+      }
+    }).then(function(response) {
+      console.log(response.config.data.username);
+      controller.loggedInUsername = response.config.data.username;
+      controller.username = null;
+      controller.password = null;
+      // controller.goApp();
+    }, function(error) {
+      console.log(error);
+    })
+  }
+
 }]);

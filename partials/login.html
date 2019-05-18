@@ -1,0 +1,17 @@
+<div class="users">
+    <form ng-submit="ctrl.createUser()">
+      <input type="text" ng-model="ctrl.username" placeholder="Username" />
+      <input type="password" ng-model="ctrl.password" placeholder="Password" />
+      <input type="submit" value="Create User" />
+    </form>
+
+    <form ng-submit="ctrl.logIn()">
+      <input type="text" ng-model="ctrl.username" />
+      <input type="password" ng-model="ctrl.password" />
+      <input type="submit" value="Log In" />
+    </form>
+  </div>
+
+    <div>
+      <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+    </div>
