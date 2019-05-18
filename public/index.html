@@ -9,7 +9,7 @@
     <body>
 
         <main ng-controller="MainController as ctrl">
-        
+          <div ng-include="'../partials/navigation.html'"></div>
             <h1>Travel{err}</h1>
 
             <form ng-submit="ctrl.createLocation()">
