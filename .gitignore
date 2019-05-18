@@ -1,5 +1,6 @@
 node_modules
-SECRET: 'travellife'
+.env
+SECRET = 'travellife'
 
 # Logs
 logs
