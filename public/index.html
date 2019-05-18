@@ -10,7 +10,7 @@
         <main ng-controller="MainController as ctrl">
             <h1>Travel{err}</h1>
 
-            <form ng-submit="auth.createLocation()">
+            <form ng-submit="ctrl.createLocation()">
               <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
                   <option value="Beach">Beach</option>
                   <option value="Mountains">Mountains</option>
