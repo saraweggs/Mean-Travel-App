@@ -15,17 +15,14 @@ app.use(session({
 const travelsController = require('./controllers/travels.js');
 app.use('/travels', travelsController);
 
-app.get('/', (req,res) => {
-    res.send('hello traveller!');
-});
 
 const userController = require('./controllers/users.js');
 app.use('/users', userController);
 const sessionsController = require('./controllers/sessions.js');
 app.use('/sessions', sessionsController);
 
-app.listen(3000, () => {
-    console.log('listening on port 3000...');
+app.listen(3004, () => {
+    console.log('listening on port 3004...');
 });
 
 mongoose.connect('mongodb://localhost:27017/travelerr', { useNewUrlParser: true });
