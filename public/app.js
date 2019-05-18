@@ -1,5 +1,72 @@
 const app = angular.module('TravelApp', []);
 
-app.controller('MainController', function() {
-  this.foo = 'bar';
-})
+app.controller('MainController', ['$http', function($http) {
+  const controller = this;
+  this.indexOfEditFormToShow = null;
+
+  this.createLocation = function() {
+  $http({
+    method: 'POST',
+    url: '/travels',
+    data: {
+      location: this.location,
+      image: this.image,
+      activities: this.activities,
+      food: this.food,
+      date: this.date
+      }
+    }).then(function(response) {
+      controller.getLocations();
+    }, function() {
+      console.log('error');
+    });
+  };
+
+  this.getLocations = function() {
+    $http({
+      method: 'GET',
+      url: '/travels',
+    }).then(function(response) {
+      controller.travels = response.data;
+    }, function() {
+      console.log('error');
+    });
+  };
+
+  this.getLocations();
+
+  this.deleteLocation = function(place) {
+    $http({
+      method: 'DELETE',
+      url: '/travels/' + place._id
+    }).then(
+      function(response) {
+        controller.getLocations();
+      }, function(error) {
+        console.log('error');
+      }
+    );
+  }
+
+  this.editLocation = function(place) {
+    $http({
+      method: 'PUT',
+      url: '/travels/' + place._id,
+      data: {
+        location: this.updatedLocation,
+        image: this.updatedImage,
+        activities: this.updatedActivities,
+        food: this.updatedFood,
+        date: this.updatedDate
+      }
+    }).then(
+      function(response) {
+        controller.getLocations();
+        controller.indexOfEditFormToShow = null;
+      }, function(error) {
+        console.log('error');
+      }
+    );
+  }
+
+}]);
