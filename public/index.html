@@ -7,7 +7,7 @@
         <script src="/app.js" charset="utf-8"></script>
     </head>
     <body ng-controller="MainController as ctrl">
-
+        <div ng-include="'partials/navigation.html'"></div>
       <div class="users">
           <form ng-submit="ctrl.createUser()">
             <input type="text" ng-model="ctrl.username" placeholder="Username" />
@@ -22,14 +22,21 @@
           </form>
         </div>
 
-          <div>
+          <div ng-if="ctrl.loggedInUsername">
             <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+            <form ng-submit="ctrl.logOut()">
+                <input type="submit" value="Logout">
+            </form>
           </div>
 
 
         <main ng-controller="MainController as ctrl">
 
             <h1>Travel{err}</h1>
+
+            <label for="searchBox">Search</label>
+            <input type="text" ng-model="searchBox">
+
             <form ng-submit="ctrl.createLocation()">
               <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
                   <option value="Beach">Beach</option>
@@ -43,7 +50,8 @@
               <input type="text" ng-model="ctrl.date" placeholder="Date Visited">
               <input type="submit" value="Add Place!">
             </form>
-            <div ng-repeat="place in ctrl.travels">
+
+            <div ng-repeat="place in ctrl.travels | filter: searchBox">
                 <div class="travels">
                     {{place.location}}</br>
                     <img src="{{place.image}}" alt="{{place.location}}"></br>
