@@ -6,7 +6,27 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
         <script src="/app.js" charset="utf-8"></script>
     </head>
-    <body>
+    <body ng-controller="MainController as ctrl">
+
+      <div class="users">
+          <form ng-submit="ctrl.createUser()">
+            <input type="text" ng-model="ctrl.username" placeholder="Username" />
+            <input type="password" ng-model="ctrl.password" placeholder="Password" />
+            <input type="submit" value="Create User" />
+          </form>
+
+          <form ng-submit="ctrl.logIn()">
+            <input type="text" ng-model="ctrl.existingUsername" />
+            <input type="password" ng-model="ctrl.existingPassword" />
+            <input type="submit" value="Log In" />
+          </form>
+        </div>
+
+          <div>
+            <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+          </div>
+
+
         <main ng-controller="MainController as ctrl">
 
             <h1>Travel{err}</h1>
