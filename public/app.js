@@ -17,6 +17,7 @@ app.controller('MainController', ['$http', function($http) {
         date: this.date
       }
     }).then(function(response) {
+      console.log(response);
       controller.getLocations();
     }, function() {
       console.log('error');
