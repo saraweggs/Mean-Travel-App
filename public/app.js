@@ -9,11 +9,12 @@ app.controller('MainController', ['$http', function($http) {
     method: 'POST',
     url: '/travels',
     data: {
-      location: this.location,
-      image: this.image,
-      activities: this.activities,
-      food: this.food,
-      date: this.date
+        type: this.type,
+        location: this.location,
+        image: this.image,
+        activities: this.activities,
+        food: this.food,
+        date: this.date
       }
     }).then(function(response) {
       controller.getLocations();
@@ -53,6 +54,7 @@ app.controller('MainController', ['$http', function($http) {
       method: 'PUT',
       url: '/travels/' + place._id,
       data: {
+        type: this.updatedType,
         location: this.updatedLocation,
         image: this.updatedImage,
         activities: this.updatedActivities,
