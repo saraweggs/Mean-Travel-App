@@ -38,3 +38,7 @@ h3 {
   background-color: ghostwhite;
   color: navy;
 }
+
+.container {
+    border: 2px solid navy;
+}
