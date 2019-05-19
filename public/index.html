@@ -2,12 +2,13 @@
 <html lang="en" dir="ltr" ng-app="TravelApp">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Travel{err}</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
         <script src="/app.js" charset="utf-8"></script>
     </head>
     <body ng-controller="MainController as ctrl">
-
+        <div ng-include="'/partials/navigation.html'"></div>
       <div class="users">
           <form ng-submit="ctrl.createUser()">
             <input type="text" ng-model="ctrl.username" placeholder="Username" />
@@ -22,15 +23,14 @@
           </form>
         </div>
 
-          <div>
+          <div ng-if="ctrl.loggedInUsername">
             <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+            <form ng-submit="ctrl.logOut()">
+                <input type="submit" value="Logout">
+            </form>
           </div>
 
-
-        <main ng-controller="MainController as ctrl">
-
-            <h1>Travel{err}</h1>
-            <form ng-submit="ctrl.createLocation()">
+            <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.createLocation()">
               <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
                   <option value="Beach">Beach</option>
                   <option value="Mountains">Mountains</option>
@@ -43,15 +43,27 @@
               <input type="text" ng-model="ctrl.date" placeholder="Date Visited">
               <input type="submit" value="Add Place!">
             </form>
-            <div ng-repeat="place in ctrl.travels">
+            <label for="Search by">
+                    <input type="text" placeholder="search" ng-model='searchBox'>
+            </label>
+            <div>
+                  <label for="Filter By Landscape">
+                      <span>Filter by Landscape:   </span>
+                      <span>Beach</span><input type="radio" name="landscape" value="Beach" ng-model="landscape" placeholder="Beach">
+                      <span>Mountains</span><input type="radio" name="landscape" value="Mountains" ng-model="landscape" placeholder="Mountains">
+                      <span>City</span><input type="radio" name="landscape" value="City" ng-model="landscape" placeholder="City">
+                      <span>Country</span><input type="radio" name="landscape" value="Country" ng-model="landscape" placeholder="Country">
+                  </label>
+            </div>
+            <div ng-repeat="place in ctrl.travels | filter: searchBox | filter:landscape">
                 <div class="travels">
                     {{place.location}}</br>
                     <img src="{{place.image}}" alt="{{place.location}}"></br>
                     Food Spots: {{place.food}}</br>
                     Activities: {{place.activities}}</br>
                     Visited On: {{place.date | date:'MM/dd/yyyy'}}
-                    <button ng-click="ctrl.deleteLocation(place)">Delete</button>
-                    <form ng-submit="ctrl.editLocation(place)">
+                    <button ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteLocation(place)">Delete</button>
+                    <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.editLocation(place)">
                       <select name="type" ng-model="ctrl.updatedType" placeholder="Type of Location">
                           <option value="Beach">Beach</option>
                           <option value="Mountains">Mountains</option>
@@ -66,6 +78,5 @@
                     </form>
                 </div>
             </div>
-        </main>
     </body>
 </html>

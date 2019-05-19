@@ -1,7 +1,9 @@
 const app = angular.module('TravelApp', []);
 
 app.controller('MainController', ['$http', function($http) {
+
   const controller = this;
+
   this.indexOfEditFormToShow = null;
 
   this.createLocation = function() {
@@ -34,8 +36,6 @@ app.controller('MainController', ['$http', function($http) {
       console.log('error');
     });
   };
-
-  this.getLocations();
 
   this.deleteLocation = function(place) {
     $http({
@@ -109,14 +109,15 @@ app.controller('MainController', ['$http', function($http) {
         password: this.existingPassword
       }
     }).then(function(response) {
-      console.log(response.config.data.username);
       controller.loggedInUsername = response.config.data.username;
-      controller.username = null;
-      controller.password = null;
+      controller.existingUsername = null;
+      controller.existingPassword = null;
       // controller.goApp();
     }, function(error) {
       console.log(error);
     })
   }
+
+  this.getLocations();
 
 }]);
