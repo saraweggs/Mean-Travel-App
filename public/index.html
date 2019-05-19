@@ -7,7 +7,7 @@
         <script src="/app.js" charset="utf-8"></script>
     </head>
     <body ng-controller="MainController as ctrl">
-        <div ng-include="'partials/navigation.html'"></div>
+        <div ng-include="'/partials/navigation.html'"></div>
       <div class="users">
           <form ng-submit="ctrl.createUser()">
             <input type="text" ng-model="ctrl.username" placeholder="Username" />
@@ -29,15 +29,7 @@
             </form>
           </div>
 
-
-        <main ng-controller="MainController as ctrl">
-
-            <h1>Travel{err}</h1>
-
-            <label for="searchBox">Search</label>
-            <input type="text" ng-model="searchBox">
-
-            <form ng-submit="ctrl.createLocation()">
+            <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.createLocation()">
               <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
                   <option value="Beach">Beach</option>
                   <option value="Mountains">Mountains</option>
@@ -58,8 +50,8 @@
                     Food Spots: {{place.food}}</br>
                     Activities: {{place.activities}}</br>
                     Visited On: {{place.date | date:'MM/dd/yyyy'}}
-                    <button ng-click="ctrl.deleteLocation(place)">Delete</button>
-                    <form ng-submit="ctrl.editLocation(place)">
+                    <button ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteLocation(place)">Delete</button>
+                    <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.editLocation(place)">
                       <select name="type" ng-model="ctrl.updatedType" placeholder="Type of Location">
                           <option value="Beach">Beach</option>
                           <option value="Mountains">Mountains</option>
@@ -74,6 +66,5 @@
                     </form>
                 </div>
             </div>
-        </main>
     </body>
 </html>
