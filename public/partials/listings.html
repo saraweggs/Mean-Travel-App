@@ -1,6 +1,18 @@
 
-
-<div ng-repeat="place in ctrl.travels | filter: searchBox" class="container">
+<label for="Search by">
+        <input type="text" placeholder="search" ng-model='searchBox'>
+</label>
+<div>
+      <label for="Filter By Landscape">
+          <span>Filter by Landscape:   </span>
+          <span>Beach</span><input type="radio" name="landscape" value="Beach" ng-model="landscape" placeholder="Beach">
+          <span>Mountains</span><input type="radio" name="landscape" value="Mountains" ng-model="landscape" placeholder="Mountains">
+          <span>City</span><input type="radio" name="landscape" value="City" ng-model="landscape" placeholder="City">
+          <span>Country</span><input type="radio" name="landscape" value="Country" ng-model="landscape" placeholder="Country">
+          <span>All</span><input type="radio" name="All" value="" ng-model="landscape" placeholder="All">
+      </label>
+</div>
+<div ng-repeat="place in ctrl.travels | filter: searchBox | filter:landscape" class="container">
   <div class="travels">
     {{place.location}}<br>
     <img src="{{place.image}}" alt="{{place.location}}"><br>
