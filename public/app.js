@@ -6,6 +6,11 @@ app.controller('MainController', ['$http', function($http) {
 
   this.indexOfEditFormToShow = null;
 
+  this.includePath = 'partials/listings.html';
+  this.changeInclude = (path) => {
+  this.includePath = 'partials/'+ path +'.html';
+}
+
   this.createLocation = function() {
   $http({
     method: 'POST',
@@ -112,7 +117,6 @@ app.controller('MainController', ['$http', function($http) {
       controller.loggedInUsername = response.config.data.username;
       controller.existingUsername = null;
       controller.existingPassword = null;
-      // controller.goApp();
     }, function(error) {
       console.log(error);
     })
