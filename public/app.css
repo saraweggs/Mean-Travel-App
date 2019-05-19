@@ -1,0 +1,40 @@
+.navigationBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100px;
+  background-color: navy;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  color: ghostwhite;
+  font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+  margin-left: 10px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav > a {
+  padding: 15px;
+  margin: 2px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav > a:hover {
+  background-color: ghostwhite;
+  color: navy;
+}
