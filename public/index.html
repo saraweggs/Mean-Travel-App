@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="TravelApp">
-    <head>
-        <meta charset="utf-8">
-        <title>Travel{err}</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
-        <script src="/app.js" charset="utf-8"></script>
-        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="app.css">
-    </head>
-    <body ng-controller="MainController as ctrl">
-        <div ng-include="'/partials/navigation.html'"></div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Travel{err}</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
+  <script src="/app.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body ng-controller="MainController as ctrl">
+  <div ng-include="'/partials/navigation.html'"></div>
 
 
-          <div ng-if="ctrl.loggedInUsername">
-            <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
-            <form ng-submit="ctrl.logOut()">
-                <input type="submit" value="Logout">
-            </form>
-          </div>
+  <div ng-if="ctrl.loggedInUsername">
+    <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+  </div>
 
-            <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.createLocation()">
-              <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
-                  <option value="Beach">Beach</option>
-                  <option value="Mountains">Mountains</option>
-                  <option value="City">City</option>
-                  <option value="Country">Country</option>
-              <input type="text" ng-model="ctrl.location" placeholder="Location">
-              <input type="text" ng-model="ctrl.image" placeholder="Image Link">
-              <input type="text" ng-model="ctrl.activities" placeholder="Activities">
-              <input type="text" ng-model="ctrl.food" placeholder="Food Spots">
-              <input type="text" ng-model="ctrl.date" placeholder="Date Visited">
-              <input type="submit" value="Add Place!">
-            </form>
+  <div ng-include="ctrl.includePath"></div>
+</body>
 
-            <div ng-include="ctrl.includePath"></div>
-    </body>
 </html>
