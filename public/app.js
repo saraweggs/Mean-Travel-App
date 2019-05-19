@@ -8,14 +8,14 @@ app.controller('MainController', ['$http', function($http) {
 
   this.includePath = 'partials/listings.html';
   this.changeInclude = (path) => {
-  this.includePath = 'partials/'+ path +'.html';
-}
+    this.includePath = 'partials/' + path + '.html';
+  }
 
   this.createLocation = function() {
-  $http({
-    method: 'POST',
-    url: '/travels',
-    data: {
+    $http({
+      method: 'POST',
+      url: '/travels',
+      data: {
         type: this.type,
         location: this.location,
         image: this.image,
@@ -49,7 +49,8 @@ app.controller('MainController', ['$http', function($http) {
     }).then(
       function(response) {
         controller.getLocations();
-      }, function(error) {
+      },
+      function(error) {
         console.log('error');
       }
     );
@@ -72,7 +73,8 @@ app.controller('MainController', ['$http', function($http) {
         console.log(response);
         controller.getLocations();
         controller.indexOfEditFormToShow = null;
-      }, function(error) {
+      },
+      function(error) {
         console.log('error');
       }
     );
@@ -94,14 +96,14 @@ app.controller('MainController', ['$http', function($http) {
     })
   }
 
-  this.logOut = function(){
+  this.logOut = function() {
     $http({
-        method:'DELETE',
-        url:'/sessions'
-    }).then(function(response){
-        controller.loggedInUsername = null;
-    }, function(error){
-        console.log(error);
+      method: 'DELETE',
+      url: '/sessions'
+    }).then(function(response) {
+      controller.loggedInUsername = null;
+    }, function(error) {
+      console.log(error);
     });
   }
 
