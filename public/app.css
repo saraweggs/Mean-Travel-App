@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   height: 100px;
-  background-color: navy;
+  background-color: ghostwhite;
 }
 
 .header {
@@ -11,7 +11,7 @@
   flex-direction: row;
   align-items: center;
   margin: 10px;
-  color: ghostwhite;
+  color: navy;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -31,12 +31,41 @@ h3 {
   padding: 15px;
   margin: 2px;
   text-decoration: none;
-  color: white;
+  color: navy;
 }
 
 .nav > a:hover {
+  background-color: navy;
+  color: ghostwhite;
+}
+
+.login {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.users {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ghostwhite;
+  padding: 5%;
+  font-family: 'Poppins', sans-serif;
+}
+
+span {
   color: navy;
+  font-size: 30px;
+}
+
+.textBox {
+  height: 40px;
+  width: 400px;
+  margin: 5px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
