@@ -117,10 +117,12 @@ app.controller('MainController', ['$http', function($http) {
       controller.loggedInUsername = response.config.data.username;
       controller.existingUsername = null;
       controller.existingPassword = null;
+      controller.getLocations();
     }, function(error) {
       console.log(error);
     })
   }
+
 
   this.getLocations();
 
