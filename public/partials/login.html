@@ -5,12 +5,12 @@
     <form ng-submit="ctrl.createUser()">
       <input class="textBox" type="text" ng-model="ctrl.username" placeholder="Username" /><br/>
       <input class="textBox" type="password" ng-model="ctrl.password" placeholder="Password" /><br/>
-      <input class="submitBtn" type="submit" value="Create User" />
+      <input ng-click="ctrl.getLocations()" class="submitBtn" type="submit" value="Create User" />
     </form>
     <span>Log In:</span>
     <form ng-submit="ctrl.logIn()">
-      <input class="textBox" type="text" ng-model="ctrl.username" /><br/>
-      <input class="textBox" type="password" ng-model="ctrl.password" /><br/>
+      <input class="textBox" type="text" ng-model="ctrl.existingUsername" /><br/>
+      <input class="textBox" type="password" ng-model="ctrl.existingPassword" /><br/>
       <input class="submitBtn" type="submit" value="Log In" />
     </form>
   </div>

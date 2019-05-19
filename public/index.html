@@ -10,19 +10,7 @@
     </head>
     <body ng-controller="MainController as ctrl">
         <div ng-include="'/partials/navigation.html'"></div>
-      <div class="users">
-          <form ng-submit="ctrl.createUser()">
-            <input type="text" ng-model="ctrl.username" placeholder="Username" />
-            <input type="password" ng-model="ctrl.password" placeholder="Password" />
-            <input type="submit" value="Create User" />
-          </form>
 
-          <form ng-submit="ctrl.logIn()">
-            <input type="text" ng-model="ctrl.existingUsername" />
-            <input type="password" ng-model="ctrl.existingPassword" />
-            <input type="submit" value="Log In" />
-          </form>
-        </div>
 
           <div ng-if="ctrl.loggedInUsername">
             <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
@@ -45,6 +33,6 @@
               <input type="submit" value="Add Place!">
             </form>
 
-            <div ng-include="'/partials/listings.html'"></div>
+            <div ng-include="ctrl.includePath"></div>
     </body>
 </html>
