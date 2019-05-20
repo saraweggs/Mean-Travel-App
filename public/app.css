@@ -41,4 +41,17 @@ h3 {
 
 .container {
     border: 2px solid navy;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 1em 2em;
+}
+
+.place {
+    border: 1px solid red;
+    padding: .5em;
+    margin: .5em;
+
 }

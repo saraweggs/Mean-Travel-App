@@ -1,5 +1,6 @@
-<div ng-repeat="place in ctrl.travels | filter: searchBox" class="container">
-    <div class="travels">
+<div class="container">
+<div ng-repeat="place in ctrl.travels | filter: searchBox">
+    <div class="place">
         {{place.location}}<br>
         <img src="{{place.image}}" alt="{{place.location}}"><br>
         Food Spots: {{place.food}}</br>
@@ -20,4 +21,5 @@
           <input type="submit" value="Edit Place!">
         </form>
     </div>
+</div>
 </div>
