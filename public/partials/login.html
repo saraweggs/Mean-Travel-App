@@ -1,17 +1,18 @@
-<div class="users">
+<div class="login">
+  <img src="https://www.studentuniverse.com/blog/wp-content/uploads/2014/04/Most-Beautiful-Places-to-Travel-Featured-Image.jpg" alt="Travel" style="width:100%">
+  <div class="users">
+    <span>Join:</span>
     <form ng-submit="ctrl.createUser()">
-      <input type="text" ng-model="ctrl.username" placeholder="Username" />
-      <input type="password" ng-model="ctrl.password" placeholder="Password" />
-      <input type="submit" value="Create User" />
+      <input class="textBox" type="text" ng-model="ctrl.username" placeholder="Username" /><br />
+      <input class="textBox" type="password" ng-model="ctrl.password" placeholder="Password" /><br />
+      <input class="submitBtn" type="submit" value="Create User" />
     </form>
-
+    <h5 ng-if="ctrl.userCreated">Account created successfully! Please log in!</h5><br/>
+    <span>Log In:</span>
     <form ng-submit="ctrl.logIn()">
-      <input type="text" ng-model="ctrl.username" />
-      <input type="password" ng-model="ctrl.password" />
-      <input type="submit" value="Log In" />
+      <input class="textBox" type="text" ng-model="ctrl.existingUsername" /><br />
+      <input class="textBox" type="password" ng-model="ctrl.existingPassword" /><br />
+      <input  class="submitBtn" type="submit" value="Log In" />
     </form>
   </div>
-
-    <div>
-      <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
-    </div>
+</div>

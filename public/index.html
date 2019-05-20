@@ -1,82 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="TravelApp">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Travel{err}</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
-        <script src="/app.js" charset="utf-8"></script>
-    </head>
-    <body ng-controller="MainController as ctrl">
-        <div ng-include="'/partials/navigation.html'"></div>
-      <div class="users">
-          <form ng-submit="ctrl.createUser()">
-            <input type="text" ng-model="ctrl.username" placeholder="Username" />
-            <input type="password" ng-model="ctrl.password" placeholder="Password" />
-            <input type="submit" value="Create User" />
-          </form>
 
-          <form ng-submit="ctrl.logIn()">
-            <input type="text" ng-model="ctrl.existingUsername" />
-            <input type="password" ng-model="ctrl.existingPassword" />
-            <input type="submit" value="Log In" />
-          </form>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <title>Travel{err}</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js" charset="utf-8"></script>
+  <script src="/app.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
 
-          <div ng-if="ctrl.loggedInUsername">
-            <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
-            <form ng-submit="ctrl.logOut()">
-                <input type="submit" value="Logout">
-            </form>
-          </div>
+<body ng-controller="MainController as ctrl">
 
-            <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.createLocation()">
-              <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
-                  <option value="Beach">Beach</option>
-                  <option value="Mountains">Mountains</option>
-                  <option value="City">City</option>
-                  <option value="Country">Country</option>
-              <input type="text" ng-model="ctrl.location" placeholder="Location">
-              <input type="text" ng-model="ctrl.image" placeholder="Image Link">
-              <input type="text" ng-model="ctrl.activities" placeholder="Activities">
-              <input type="text" ng-model="ctrl.food" placeholder="Food Spots">
-              <input type="text" ng-model="ctrl.date" placeholder="Date Visited">
-              <input type="submit" value="Add Place!">
-            </form>
-            <label for="Search by">
-                    <input type="text" placeholder="search" ng-model='searchBox'>
-            </label>
-            <div>
-                  <label for="Filter By Landscape">
-                      <span>Filter by Landscape:   </span>
-                      <span>Beach</span><input type="radio" name="landscape" value="Beach" ng-model="landscape" placeholder="Beach">
-                      <span>Mountains</span><input type="radio" name="landscape" value="Mountains" ng-model="landscape" placeholder="Mountains">
-                      <span>City</span><input type="radio" name="landscape" value="City" ng-model="landscape" placeholder="City">
-                      <span>Country</span><input type="radio" name="landscape" value="Country" ng-model="landscape" placeholder="Country">
-                  </label>
-            </div>
-            <div ng-repeat="place in ctrl.travels | filter: searchBox | filter:landscape">
-                <div class="travels">
-                    {{place.location}}</br>
-                    <img src="{{place.image}}" alt="{{place.location}}"></br>
-                    Food Spots: {{place.food}}</br>
-                    Activities: {{place.activities}}</br>
-                    Visited On: {{place.date | date:'MM/dd/yyyy'}}
-                    <button ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteLocation(place)">Delete</button>
-                    <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.editLocation(place)">
-                      <select name="type" ng-model="ctrl.updatedType" placeholder="Type of Location">
-                          <option value="Beach">Beach</option>
-                          <option value="Mountains">Mountains</option>
-                          <option value="City">City</option>
-                          <option value="Country">Country</option>
-                      <input type="text" ng-model="ctrl.updatedLocation" placeholder="Location">
-                      <input type="text" ng-model="ctrl.updatedImage" placeholder="Image Link">
-                      <input type="text" ng-model="ctrl.updatedActivities" placeholder="Activities">
-                      <input type="text" ng-model="ctrl.updatedFood" placeholder="Food Spots">
-                      <input type="text" ng-model="ctrl.updatedDate" placeholder="Date Visited">
-                      <input type="submit" value="Edit Place!">
-                    </form>
-                </div>
-            </div>
-    </body>
+    <div ng-include="'/partials/navigation.html'"></div>
+    <div ng-if="ctrl.loggedInUsername">
+        <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+    </div>
+    <div ng-include="ctrl.includePath"></div>
+
+</body>
+
 </html>
