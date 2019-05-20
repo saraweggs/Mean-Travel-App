@@ -89,6 +89,7 @@ span {
     /* flex-direction: row; */
     flex-wrap: wrap;
     justify-content: space-around;
+    text-align: center;
     width: 90%;
     margin: 1em 2em;
 }
@@ -103,6 +104,7 @@ span {
     flex-wrap: wrap; */
     justify-content: space-around;
     align-items: center;
+    width: 350px;
 }
 .place-details {
     margin-left: .5em;
@@ -116,7 +118,7 @@ span {
     text-align: right;
 }
 img {
-  width: 30%;
+  width: 80%;
   height: auto;
 }
 .radio {
