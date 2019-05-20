@@ -1,7 +1,7 @@
 const app = angular.module('TravelApp', []);
 
 app.controller('MainController', ['$http', function($http) {
-
+  console.log('ONLOAD');
   const controller = this;
 
   this.indexOfEditFormToShow = null;
@@ -36,7 +36,7 @@ app.controller('MainController', ['$http', function($http) {
       method: 'GET',
       url: '/travels',
     }).then(function(response) {
-      controller.travels = response.data;
+      controller.travels = response.data
     }, function() {
       console.log('error');
     });
@@ -108,6 +108,7 @@ app.controller('MainController', ['$http', function($http) {
   }
 
   this.logIn = function() {
+    console.log('login is running');
     $http({
       method: 'POST',
       url: '/sessions',
@@ -116,10 +117,12 @@ app.controller('MainController', ['$http', function($http) {
         password: this.existingPassword
       }
     }).then(function(response) {
+      console.log(response);
       controller.loggedInUsername = response.config.data.username;
       controller.existingUsername = null;
       controller.existingPassword = null;
       controller.getLocations();
+      controller.changeInclude('listings');
     }, function(error) {
       console.log(error);
     })

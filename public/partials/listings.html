@@ -1,27 +1,33 @@
-<div ng-if="ctrl.loggedInUsername">
-  <h3>Welcome, {{ctrl.loggedInUsername}}!</h3>
+<div class="container">
+<div ng-repeat="place in ctrl.travels | filter: searchBox">
+    <div class="place">
+        <h3>{{place.location}}</h3><br>
+        <img src="{{place.image}}" alt="{{place.location}}"><br>
+        <div class="place-details">
+            <!-- <h3>{{place.location}}</h3><br> -->
+            <em class="details">Food Spots: </em> {{place.food}}<br>
+            <em class="details">Activities: </em> {{place.activities}}<br>
+            <em class="details">Visited On: </em> {{place.date | date:'MM/dd/yyyy'}} <br>
+        </div>
+        <div class ="alter">
+            <button ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteLocation(place)">Delete</button> <br>
+            <a ng-if="ctrl.loggedInUsername" href="#" ng-click="ctrl.indexOfEditFormToShow = $index"><button class="">Edit</button></a>
+            <div ng-if="$index === ctrl.indexOfEditFormToShow">
+                <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.editLocation(place)">
+                  <select name="type" ng-model="ctrl.updatedType" placeholder="Type of Location">
+                      <option value="Beach">Beach</option>
+                      <option value="Mountains">Mountains</option>
+                      <option value="City">City</option>
+                      <option value="Country">Country</option>
+                  <input type="text" ng-model="ctrl.updatedLocation" placeholder="Location">
+                  <input type="text" ng-model="ctrl.updatedImage" placeholder="Image Link">
+                  <input type="text" ng-model="ctrl.updatedActivities" placeholder="Activities">
+                  <input type="text" ng-model="ctrl.updatedFood" placeholder="Food Spots">
+                  <input type="text" ng-model="ctrl.updatedDate" placeholder="Date Visited">
+                  <input type="submit" value="Update!">
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div ng-repeat="place in ctrl.travels | filter: searchBox" class="container">
-  <div class="travels">
-    {{place.location}}<br>
-    <img src="{{place.image}}" alt="{{place.location}}"><br>
-    Food Spots: {{place.food}}</br>
-    Activities: {{place.activities}}<br>
-    Visited On: {{place.date | date:'MM/dd/yyyy'}}
-    <button ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteLocation(place)">Delete</button>
-    <form ng-if="ctrl.loggedInUsername" ng-submit="ctrl.editLocation(place)">
-      <select name="type" ng-model="ctrl.updatedType" placeholder="Type of Location">
-        <option value="Beach">Beach</option>
-        <option value="Mountains">Mountains</option>
-        <option value="City">City</option>
-        <option value="Country">Country</option>
-        <input type="text" ng-model="ctrl.updatedLocation" placeholder="Location">
-        <input type="text" ng-model="ctrl.updatedImage" placeholder="Image Link">
-        <input type="text" ng-model="ctrl.updatedActivities" placeholder="Activities">
-        <input type="text" ng-model="ctrl.updatedFood" placeholder="Food Spots">
-        <input type="text" ng-model="ctrl.updatedDate" placeholder="Date Visited">
-        <input type="submit" value="Edit Place!">
-    </form>
-  </div>
 </div>

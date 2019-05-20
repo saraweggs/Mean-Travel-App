@@ -77,8 +77,34 @@ span {
 
 .container {
     border: 2px solid navy;
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: 1em 2em;
 }
 
+.place {
+    border: 1px solid navy;
+    padding: .5em;
+    margin: .5em;
+    display: flex;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    justify-content: space-around;
+    align-items: center;
+}
+.place-details {
+    margin-left: .5em;
+}
+.details {
+    text-decoration: underline;
+}
+.alter {
+    margin-left: .5em;
+    text-align: right;
+}
 img {
   width: 30%;
   height: auto;
