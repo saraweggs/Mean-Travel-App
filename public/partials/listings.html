@@ -1,5 +1,24 @@
+<div class="searchRadio">
+  <img src="https://i.imgur.com/IBVCAek.jpg" alt="Travel" style="width:100%">
+  <div class="search">
+    <label for="Search by">
+      <input type="text" placeholder="search" ng-model='searchBox'>
+    </label>
+  </div>
+  <div class="radio">
+      <label for="Filter By Landscape">
+        <span>Filter by Landscape:   </span>
+        <span>Beach</span><input type="radio" name="landscape" value="Beach" ng-model="landscape" placeholder="Beach">
+        <span>Mountains</span><input type="radio" name="landscape" value="Mountains" ng-model="landscape" placeholder="Mountains">
+        <span>City</span><input type="radio" name="landscape" value="City" ng-model="landscape" placeholder="City">
+        <span>Country</span><input type="radio" name="landscape" value="Country" ng-model="landscape" placeholder="Country">
+        <span>All</span><input type="radio" name="All" value="" ng-model="landscape" placeholder="All">
+      </label>
+  </div>
+</div>
+
 <div class="container">
-<div ng-repeat="place in ctrl.travels | filter: searchBox">
+  <div ng-repeat="place in ctrl.travels | filter: searchBox | filter:landscape">
     <div class="place">
         <h3>{{place.location}}</h3><br>
         <img src="{{place.image}}" alt="{{place.location}}"><br>
@@ -29,5 +48,5 @@
             </div>
         </div>
     </div>
-</div>
+  </div>
 </div>
