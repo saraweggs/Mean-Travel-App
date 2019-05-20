@@ -1,15 +1,35 @@
+
+<div class="searchRadio">
+  <img src="https://i.imgur.com/IBVCAek.jpg" alt="Travel" style="width:100%">
+  <div class="search">
+    <label for="Search by">
+      <input type="text" placeholder="search" ng-model='searchBox'>
+    </label>
+  </div>
+  <div class="radio">
+      <label for="Filter By Landscape">
+        Filter by Landscape:<br>
+        <input type="radio" name="landscape" value="Beach" ng-model="landscape" placeholder="Beach">Beach
+        <input type="radio" name="landscape" value="Mountains" ng-model="landscape" placeholder="Mountains">Mountains <br>
+        <input type="radio" name="landscape" value="City" ng-model="landscape" placeholder="City">City
+        <input type="radio" name="landscape" value="Country" ng-model="landscape" placeholder="Country">Country
+        <input type="radio" name="All" value="" ng-model="landscape" placeholder="All">View All
+      </label>
+  </div>
+</div>
+
 <div class="container">
-<div ng-repeat="place in ctrl.travels | filter: searchBox">
+<div ng-repeat="place in ctrl.travels | filter: searchBox | filter: landscape">
     <div class="place">
-        <h3>{{place.location}}</h3><br>
-        <img src="{{place.image}}" alt="{{place.location}}"><br>
-        <div class="place-details">
-            <!-- <h3>{{place.location}}</h3><br> -->
+        <a  ng-click="ctrl.showDetails()" href="#">
+        <h3>{{place.location}}</h3>
+        <img src="{{place.image}}" alt="{{place.location}}"></a>
+        <div class="place-details" ng-if="ctrl.showInfo === true">
             <em class="details">Food Spots: </em> {{place.food}}<br>
             <em class="details">Activities: </em> {{place.activities}}<br>
             <em class="details">Visited On: </em> {{place.date | date:'MM/dd/yyyy'}} <br>
         </div>
-        <div class ="alter">
+        <div class ="alter" ng-if="ctrl.showInfo === true">
             <button ng-if="ctrl.loggedInUsername" ng-click="ctrl.deleteLocation(place)">Delete</button> <br>
             <a ng-if="ctrl.loggedInUsername" href="#" ng-click="ctrl.indexOfEditFormToShow = $index"><button class="">Edit</button></a>
             <div ng-if="$index === ctrl.indexOfEditFormToShow">

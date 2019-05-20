@@ -6,7 +6,13 @@ app.controller('MainController', ['$http', function($http) {
 
   this.indexOfEditFormToShow = null;
 
+  this.showInfo = false;
+  this.showDetails = function() {
+      this.showInfo = !this.showInfo;
+  }
+
   this.includePath = 'partials/listings.html';
+
   this.changeInclude = (path) => {
     this.includePath = 'partials/' + path + '.html';
   }
