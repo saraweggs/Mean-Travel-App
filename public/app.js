@@ -30,7 +30,7 @@ app.controller('MainController', ['$http', function($http) {
         date: this.date
       }
     }).then(function(response) {
-      console.log(response);
+      controller.changeInclude('listings');
       controller.getLocations();
     }, function() {
       console.log('error');
@@ -97,6 +97,7 @@ app.controller('MainController', ['$http', function($http) {
     }).then(function(response) {
       controller.username = null;
       controller.password = null;
+      controller.userCreated = response.config.data.username;
     }, function(error) {
       console.log(error);
     })
