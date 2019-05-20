@@ -1,17 +1,21 @@
-<div class="login">
-  <img src="https://www.studentuniverse.com/blog/wp-content/uploads/2014/04/Most-Beautiful-Places-to-Travel-Featured-Image.jpg" alt="Travel" style="width:100%">
-  <div class="users">
+<div class="addPage">
+  <img src="https://worldstrides.com/wp-content/uploads/2015/07/iStock_000040849990_Large.jpg" alt="NYC" style="width:100%">
+  <div class="addPlace">
+    <span>Add a Destination!</span>
     <form ng-submit="ctrl.createLocation()">
-      <select name="type" ng-model="ctrl.type" placeholder="Type of Location">
-        <option value="Beach">Beach</option>
-        <option value="Mountains">Mountains</option>
-        <option value="City">City</option>
-        <option value="Country">Country</option>
-        <input type="text" ng-model="ctrl.location" placeholder="Location">
-        <input type="text" ng-model="ctrl.image" placeholder="Image Link">
-        <input type="text" ng-model="ctrl.activities" placeholder="Activities">
-        <input type="text" ng-model="ctrl.food" placeholder="Food Spots">
-        <input type="text" ng-model="ctrl.date" placeholder="Date Visited">
-        <input type="submit" value="Add Place!">
+      <div class="custom-select"><br/>
+        <select class="dropdown" name="type" ng-model="ctrl.type"><br/>
+          <option value="0">Type of Location</option>
+          <option value="1">Beach</option>
+          <option value="2">Mountains</option>
+          <option value="3">City</option>
+          <option value="4">Country</option>
+        </div>
+        <input class="textBox" type="text" ng-model="ctrl.location" placeholder="Location Name">
+        <input class="textBox" type="text" ng-model="ctrl.image" placeholder="Image Link">
+        <input class="textBox" type="text" ng-model="ctrl.activities" placeholder="Activities">
+        <input class="textBox" type="text" ng-model="ctrl.food" placeholder="Food Spots">
+        <input class="textBox" type="text" ng-model="ctrl.date" placeholder="Date Visited"><br/>
+        <input class="submitBtn" type="submit" value="Add Place!">
   </div>
 </div>

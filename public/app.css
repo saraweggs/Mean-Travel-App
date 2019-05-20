@@ -20,6 +20,7 @@ body {
   color: navy;
   font-family: 'Poppins', sans-serif;
 }
+
 a {
     text-decoration: none;
 }
@@ -29,6 +30,9 @@ h3 {
   color: navy;
 }
 
+h5 {
+  color: navy;
+}
 .nav {
   display: flex;
   flex-direction: row;
@@ -139,4 +143,44 @@ img {
   transform: translate(-50%, -50%);
   left: 50%;
   padding-top:
+}
+
+.addPage {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.addPlace {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: ghostwhite;
+  padding: 5%;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+}
+
+input[type="submit"] {
+  font-family: 'Poppins', sans-serif;
+  background-color: navy;
+  border-radius: 10px;
+  border: 1px solid navy;
+  color: ghostwhite;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  margin: 10px 0 5px 0;
+}
+
+input[type="submit"]:hover {
+  background-color: ghostwhite;
+  border: 1px solid navy;
+  color: navy;
+}
+
+.logo {
+  text-decoration: none;
+  color: navy;
 }

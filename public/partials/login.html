@@ -7,6 +7,7 @@
       <input class="textBox" type="password" ng-model="ctrl.password" placeholder="Password" /><br />
       <input class="submitBtn" type="submit" value="Create User" />
     </form>
+    <h5 ng-if="ctrl.userCreated">Account created successfully! Please log in!</h5><br/>
     <span>Log In:</span>
     <form ng-submit="ctrl.logIn()">
       <input class="textBox" type="text" ng-model="ctrl.existingUsername" /><br />
