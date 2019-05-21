@@ -161,10 +161,14 @@ button:hover {
 /* ====================== */
 /* search box and filters */
 /* ====================== */
-.searchRadio > img {
+.searchRadio {
     position: relative;
+}
+
+.searchRadio > img {
     width: 90%;
     height: auto;
+
 }
 .search {
   position: absolute;
