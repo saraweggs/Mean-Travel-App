@@ -4,12 +4,12 @@
     <span>Add a Destination!</span>
     <form ng-submit="ctrl.createLocation()">
       <div class="custom-select"><br/>
-        <select class="dropdown" name="type" ng-model="ctrl.type"><br/>
-          <option value="0">Type of Location</option>
-          <option value="1">Beach</option>
-          <option value="2">Mountains</option>
-          <option value="3">City</option>
-          <option value="4">Country</option>
+        <select class="dropdown" name="type" ng-model="ctrl.type">
+          <option value="0">Beach</option>
+          <option value="1">Mountains</option>
+          <option value="2">City</option>
+          <option value="3">Country</option>
+          </select><br/>
         </div>
         <input class="textBox" type="text" ng-model="ctrl.location" placeholder="Location Name">
         <input class="textBox" type="text" ng-model="ctrl.image" placeholder="Image Link">
