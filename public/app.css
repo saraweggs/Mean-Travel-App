@@ -101,9 +101,10 @@ span {
     padding: .5em;
     margin: .5em;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    /* max-width: 350px; */
+    width: 500px;
+    height: auto;
     background-color: ghostwhite;
 }
 
@@ -177,10 +178,15 @@ button:hover {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: white;
-  font-size: 1em;
+  font-size: 1.5em;
   text-align: center;
   transform: translate(-50%, -50%);
+}
 
+.searchBar {
+  width: 200px;
+  height: 25px;
+  font-size: 20px;
 }
 /* .radio { */
   /* position: absolute;
