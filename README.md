@@ -23,5 +23,8 @@ We mapped out our basic idea with a flowchart.  This helped us identify how the 
 We used a mockup to be able to visualize our final product. This was a helpful tool for breaking up the workload, helping us see sections for which we could create partials.  This allowed us to work on different files at the same time.
 
 ## User Stories
+User can view all of the places listed.  If the user clicks on the image or name, the details will appear adjacent to it. The user can also search through the listings based on their input choice, or using the filters provided. 
+
+Users can create accounts and then log in to have access to increased functionality.  They can create a listing, edit or delete one.  
 
 ## Unsolved Problems
