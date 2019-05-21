@@ -20,7 +20,7 @@ Travel{err} was built using Node.js, Mongoose, Express, AngularJS, HTML, and CSS
 
 We mapped out our basic idea with a flowchart.  This helped us identify how the user would move through the application.  Which part would be open and which part would be restricted to users that were logged in.  We identified how we wanted to link the different pages so that the user could move around inside the app.
 
-![flowchart](images/travel{err} Flowchart.png)
+We used a mockup to be able to visualize our final product. This was a helpful tool for breaking up the workload, helping us see sections for which we could create partials.  This allowed us to work on different files at the same time.
 
 ## User Stories
 
