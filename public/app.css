@@ -162,6 +162,7 @@ button:hover {
 .radio {
   background-color: transparent;
   position: absolute;
+  bottom: 100px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
