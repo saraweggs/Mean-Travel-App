@@ -3,7 +3,7 @@ const app = angular.module('TravelApp', []);
 app.controller('MainController', ['$http', function($http) {
   console.log('ONLOAD');
   const controller = this;
-
+  this.wrongPassword = false;
   this.indexOfEditFormToShow = null;
   // this.indexOfDetailsToShow = null;
   this.showInfo = false;
@@ -32,6 +32,12 @@ app.controller('MainController', ['$http', function($http) {
     }).then(function(response) {
       controller.changeInclude('listings');
       controller.getLocations();
+      controller.type = null;
+      controller.location = null;
+      controller.image = null;
+      controller.activities = null;
+      controller.food = null;
+      controller.date = null;
     }, function() {
       console.log('error');
     });
@@ -79,6 +85,12 @@ app.controller('MainController', ['$http', function($http) {
         console.log(response);
         controller.getLocations();
         controller.indexOfEditFormToShow = null;
+        controller.updatedType = null;
+        controller.updatedLocation = null;
+        controller.updatedImage = null;
+        controller.updatedActivities = null;
+        controller.updatedFood = null;
+        controller.updatedDate = null;
       },
       function(error) {
         console.log('error');
@@ -130,8 +142,14 @@ app.controller('MainController', ['$http', function($http) {
       controller.existingPassword = null;
       controller.getLocations();
       controller.changeInclude('listings');
+      wrongPassword = false;
     }, function(error) {
       console.log(error);
+      // res.send('Sorry, Wrong Password!');
+      controller.existingUsername = null;
+      controller.existingPassword = null;
+      controller.wrongPassword = true;
+      controller.changeInclude('login');
     })
   }
 
