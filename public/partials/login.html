@@ -13,6 +13,7 @@
       <input class="textBox" type="text" ng-model="ctrl.existingUsername" /><br />
       <input class="textBox" type="password" ng-model="ctrl.existingPassword" /><br />
       <input  class="submitBtn" type="submit" value="Log In" />
+      <p ng-if="ctrl.wrongPassword === true" style="color:red">Wrong Password! Please try again</p>
     </form>
   </div>
 </div>

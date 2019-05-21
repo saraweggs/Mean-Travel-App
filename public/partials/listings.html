@@ -3,10 +3,10 @@
   
   <div class="search">
     <label for="Search by">
-      <input type="text" placeholder="search" ng-model='searchBox'>
-    </label>
-  </div>
-  <div class="radio">
+      <input class="searchBar" type="text" placeholder="search" ng-model='searchBox'>
+    </label><br>
+
+  <!-- <div class="radio"> -->
       <label for="Filter By Landscape">
         Filter by Landscape:<br>
         <input type="radio" name="landscape" value="Beach" ng-model="landscape" placeholder="Beach">Beach
@@ -15,18 +15,19 @@
         <input type="radio" name="landscape" value="Country" ng-model="landscape" placeholder="Country">Country
         <input type="radio" name="All" value="" ng-model="landscape" placeholder="All">View All
       </label>
+     <!-- </div> -->
   </div>
 </div>
 
 <div class="container">
 <div ng-repeat="place in ctrl.travels | filter: searchBox | filter: landscape">
     <div class="place">
-        <!-- <a  ng-click="ctrl.showDetails()" href="#"> -->
-        <a href="#" ng-click="ctrl.indexOfDetailsToShow = $index">
+        <a  ng-click="ctrl.showDetails()" href="#">
+        <!-- <a href="#" ng-click="ctrl.indexOfDetailsToShow = $index"> -->
         <h3>{{place.location}}</h3>
-        <img src="{{place.image}}" alt="{{place.location}}"></a>
-        <!-- <div class="place-details" ng-if="ctrl.showInfo === true"> -->
-        <div class="place-details" ng-if="$index === ctrl.indexOfDetailsToShow">
+        <img class="placeImage" src="{{place.image}}" alt="{{place.location}}"></a>
+        <div class="place-details" ng-if="ctrl.showInfo === true">
+        <!-- <div class="place-details" ng-if="$index === ctrl.indexOfDetailsToShow"> -->
             <dt>Food Spots:</dt><dd>{{place.food}}</dd>
             <dt>Activities:</dt> <dd>{{place.activities}}</dd>
             <dt>Visited On:</dt><dd>{{place.date | date:'MM/dd/yyyy'}}</dd>
