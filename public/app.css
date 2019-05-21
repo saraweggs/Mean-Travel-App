@@ -103,7 +103,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    max-width: 500px;
     height: auto;
     background-color: ghostwhite;
 }
@@ -114,6 +114,7 @@ span {
     background-color: ghostwhite;
     text-align: right;
 }
+
 dt {
     text-align: right;
     text-decoration: underline;
