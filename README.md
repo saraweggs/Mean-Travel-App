@@ -24,7 +24,7 @@ We mapped out our basic idea with a flowchart.  This helped us identify how the 
 
 We used a mockup to be able to visualize our final product. This was a helpful tool for breaking up the workload, helping us see sections for which we could create partials.  This allowed us to work on different files at the same time.
 
-We used Zenhub to organize our workload.  This tool helped us map out each user story, as well as the steps needed to build up our application.  We separated the stories into epics, and this allowed us to see where we stood in the larger project picture.
+We used ZenHub to organize our workload.  This tool helped us map out each user story, as well as the steps needed to build up our application.  We separated the stories into epics, and this allowed us to see where we stood in the larger project picture.
 
 ## User Stories
 
@@ -34,7 +34,7 @@ If a user decides to sign up for Travel{err}, they are notified that their accou
 
 ## Unsolved Problems/Improvements
 
-* Links to Social Media,
+* Links to Social Media
 * Links to the Food Spots
 * Stronger styling
 * An Angular modal
