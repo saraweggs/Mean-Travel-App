@@ -25,7 +25,7 @@
         <a  ng-click="ctrl.showDetails()" href="#">
         <!-- <a href="#" ng-click="ctrl.indexOfDetailsToShow = $index"> -->
         <h3>{{place.location}}</h3>
-        <img class="placeImage" src="{{place.image}}" alt="{{place.location}}"></a>
+        <img src="{{place.image}}" alt="{{place.location}}"></a>
         <div class="place-details" ng-if="ctrl.showInfo === true">
         <!-- <div class="place-details" ng-if="$index === ctrl.indexOfDetailsToShow"> -->
             <dt>Food Spots:</dt><dd>{{place.food}}</dd>
