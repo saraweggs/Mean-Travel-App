@@ -7,8 +7,8 @@ app.controller('MainController', ['$http', function($http) {
   this.indexOfEditFormToShow = null;
   // this.indexOfDetailsToShow = null;
   this.showInfo = false;
-  this.showDetails = function() {
-      this.showInfo = !this.showInfo;
+  this.showDetails = function(id) {
+    this.showInfo = id
   }
 
   this.includePath = 'partials/listings.html';
